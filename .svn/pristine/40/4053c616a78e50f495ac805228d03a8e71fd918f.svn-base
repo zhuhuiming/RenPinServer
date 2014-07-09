@@ -1,0 +1,56 @@
+package cn.redarmy.domain;
+
+import java.io.Serializable;
+
+public class CommentInfo implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	public CommentInfo() {
+	}
+	
+	public CommentInfo(String strCommentPersonImage,
+			           String strCommentPersonName,
+			           String strCommentReceivePersonName,
+			           String strCommentTime,
+			           String strCommentContent){
+		this.strCommentPersonImage = strCommentPersonImage;
+		this.strCommentPersonName = strCommentPersonName;
+		this.strCommentReceivePersonName = strCommentReceivePersonName;
+		this.strCommentTime = strCommentTime;
+		this.strCommentContent = strCommentContent;
+	}
+	
+	public String getstrCommentPersonImage(){
+		return strCommentPersonImage;
+	}
+	
+	public String getstrCommentPersonName(){
+		return strCommentPersonName;
+	}
+	
+	public String getstrCommentReceivePersonName(){
+		return strCommentReceivePersonName;
+	}
+	
+	public String getstrCommentTime(){
+		return strCommentTime;
+	}
+	
+	public String getstrCommentContent(){
+		return strCommentContent;
+	}
+	//评论人的图片
+	String strCommentPersonImage;
+	//评论人的名称
+	String strCommentPersonName;
+	//被评论人的名称
+	String strCommentReceivePersonName;
+	//评论时间
+	String strCommentTime;
+	//评论内容
+	String strCommentContent;
+}

@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE struts PUBLIC   
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<!-- extends 继承json-default -->
+	<package name="default" namespace="/renpin" extends="json-default">
+		<action name="getTaskInfo" class="cn.redarmy.action.GoodAction"
+			method="GetTaskInfo">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					taskinfos\[\d+\]\.mstrTaskRegion,taskinfos\[\d+\]\.mTaskAskPersonIcon,
+					taskinfos\[\d+\]\.mPersonName,taskinfos\[\d+\]\.mTaskTitle,
+					taskinfos\[\d+\]\.mstrId,taskinfos\[\d+\]\.mdLongitude,
+					taskinfos\[\d+\]\.mdLatidude,taskinfos\[\d+\]\.mTaskAnnounceTime,
+					taskinfos\[\d+\]\.mTimeLimit,taskinfos\[\d+\]\.mTaskDetail,
+					taskinfos\[\d+\]\.mRunSeconds,taskinfos\[\d+\]\.mTaskImplementName,
+					taskinfos\[\d+\]\.mnValiableStatus,taskinfos\[\d+\]\.mnImplementStatus,
+					taskinfos\[\d+\]\.mnTaskType,taskinfos\[\d+\]\.strTaskPersonTrueName,
+					taskinfos\[\d+\]\.strTaskImplementTrueName,taskinfos\[\d+\]\.nTaskSelectType,
+					taskinfos\[\d+\]\.nTaskFinishType,taskinfos\[\d+\]\.nTaskVerifiType,
+					taskinfos\[\d+\]\.nTaskAnnounceCommentType,taskinfos\[\d+\]\.nTaskImplementCommentType,
+					taskinfos\[\d+\]\.nDynamicNewsNum,taskinfos\[\d+\]\.strTaskAccountCommentContent,
+					taskinfos\[\d+\]\.strTaskAccountImage,taskinfos\[\d+\]\.strTaskImplementCommentContent,
+					taskinfos\[\d+\]\.strTaskImplementImage
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="gettaskinfoforlimit" class="cn.redarmy.action.GoodAction"
+			method="GetTaskInfoForLimit">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					taskdetailinfos\[\d+\]\.mstrTaskRegion,taskdetailinfos\[\d+\]\.mTaskAskPersonIcon,
+					taskdetailinfos\[\d+\]\.mPersonName,taskdetailinfos\[\d+\]\.mTaskTitle,
+					taskdetailinfos\[\d+\]\.mstrId,taskdetailinfos\[\d+\]\.mdLongitude,
+					taskdetailinfos\[\d+\]\.mdLatidude,taskdetailinfos\[\d+\]\.mTaskAnnounceTime,
+					taskdetailinfos\[\d+\]\.mTimeLimit,taskdetailinfos\[\d+\]\.mTaskDetail,
+					taskdetailinfos\[\d+\]\.mRunSeconds,taskdetailinfos\[\d+\]\.mTaskImplementName,
+					taskdetailinfos\[\d+\]\.mnValiableStatus,taskdetailinfos\[\d+\]\.mnImplementStatus,
+					taskdetailinfos\[\d+\]\.mnTaskType,taskdetailinfos\[\d+\]\.strTaskPersonTrueName,
+					taskdetailinfos\[\d+\]\.strTaskImplementTrueName,taskdetailinfos\[\d+\]\.nTaskSelectType,
+					taskdetailinfos\[\d+\]\.nTaskFinishType,taskdetailinfos\[\d+\]\.nTaskVerifiType,
+					taskdetailinfos\[\d+\]\.nTaskAnnounceCommentType,taskdetailinfos\[\d+\]\.nTaskImplementCommentType,
+					taskdetailinfos\[\d+\]\.nDynamicNewsNum,taskdetailinfos\[\d+\]\.strTaskAccountCommentContent,
+					taskdetailinfos\[\d+\]\.strTaskAccountImage,taskdetailinfos\[\d+\]\.strTaskImplementCommentContent,
+					taskdetailinfos\[\d+\]\.strTaskImplementImage,taskdetailinfos\[\d+\]\.nCreditValue,
+					taskdetailinfos\[\d+\]\.nCharmValue
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="registercustomer" class="cn.redarmy.action.GoodAction"
+			method="RegisterCustomer">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					bregeditret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="login" class="cn.redarmy.action.GoodAction"
+			method="LogIn">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					customerinfo\.sex,customerinfo\.detail,customerinfo\.age,
+					customerinfo\.score,customerinfo\.strIcon,customerinfo\.nCreditValue,
+					customerinfo\.nCharmValue,customerinfo\.strCustomerName,customerinfo\.strNickName
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="addtaskinfo" class="cn.redarmy.action.GoodAction"
+			method="AddTaskInfo">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					baddtaskret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="addtaskinfoforlimit" class="cn.redarmy.action.GoodAction"
+			method="AddTaskInfoForLimit">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					baddtaskforlimitret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="addtaskinfoforlimitnew" class="cn.redarmy.action.GoodAction"
+			method="AddTaskInfoForLimitNew">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					baddtaskforlimitnewret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="selecttask" class="cn.redarmy.action.GoodAction"
+			method="SelectTask">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nselecttaskret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getmsgnum" class="cn.redarmy.action.GoodAction"
+			method="GetMsgNum">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					taskinfos\[\d+\]\.mstrTaskRegion,taskinfos\[\d+\]\.mTaskAskPersonIcon,
+					taskinfos\[\d+\]\.mPersonName,taskinfos\[\d+\]\.mTaskTitle,
+					taskinfos\[\d+\]\.mstrId,taskinfos\[\d+\]\.mdLongitude,
+					taskinfos\[\d+\]\.mdLatidude,taskinfos\[\d+\]\.mTaskAnnounceTime,
+					taskinfos\[\d+\]\.mTimeLimit,taskinfos\[\d+\]\.mTaskDetail,
+					taskinfos\[\d+\]\.mRunSeconds,taskinfos\[\d+\]\.mTaskImplementName,
+					taskinfos\[\d+\]\.mnValiableStatus,taskinfos\[\d+\]\.mnImplementStatus,
+					taskinfos\[\d+\]\.mnTaskType,taskinfos\[\d+\]\.strTaskPersonTrueName,
+					taskinfos\[\d+\]\.strTaskImplementTrueName,taskinfos\[\d+\]\.nTaskSelectType,
+					taskinfos\[\d+\]\.nTaskFinishType,taskinfos\[\d+\]\.nTaskVerifiType,
+					taskinfos\[\d+\]\.nTaskAnnounceCommentType,taskinfos\[\d+\]\.nTaskImplementCommentType,
+					taskinfos\[\d+\]\.nDynamicNewsNum,taskinfos\[\d+\]\.strTaskAccountCommentContent,
+					taskinfos\[\d+\]\.strTaskAccountImage,taskinfos\[\d+\]\.strTaskImplementCommentContent,
+					taskinfos\[\d+\]\.strTaskImplementImage
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="updatetaskselecttype" class="cn.redarmy.action.GoodAction"
+			method="UpdateTaskSelectType">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					announceret1
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="updatetaskfinishtype" class="cn.redarmy.action.GoodAction"
+			method="UpdateTaskFinishType">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					announceret2
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="updatetaskimplementcommenttype" class="cn.redarmy.action.GoodAction"
+			method="UpdateTaskImplementCommentType">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					announceret3
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="updatetaskverifitype" class="cn.redarmy.action.GoodAction"
+			method="UpdateTaskVerifiType">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					implementret1
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="updatetaskannouncecommenttype" class="cn.redarmy.action.GoodAction"
+			method="UpdateTaskAnnounceCommentType">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					implementret2
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getcomments" class="cn.redarmy.action.GoodAction"
+			method="GetComments">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					commentinfos\[\d+\]\.strCommentPersonImage,commentinfos\[\d+\]\.strCommentPersonName,
+					commentinfos\[\d+\]\.strCommentReceivePersonName,commentinfos\[\d+\]\.strCommentTime,
+					commentinfos\[\d+\]\.strCommentContent,commentinfos\[\d+\]\.strSmallImage,
+					commentinfos\[\d+\]\.nCommentIndex,commentinfos\[\d+\]\.strCommentPersonTrueName,
+					commentinfos\[\d+\]\.strCommentReceivePersonTrueName
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getnewcomments" class="cn.redarmy.action.GoodAction"
+			method="GetNewComments">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					newcommentinfos\[\d+\]\.strCommentPersonImage,newcommentinfos\[\d+\]\.strCommentPersonName,
+					newcommentinfos\[\d+\]\.strCommentReceivePersonName,newcommentinfos\[\d+\]\.strCommentTime,
+					newcommentinfos\[\d+\]\.strCommentContent,newcommentinfos\[\d+\]\.strSmallImage,
+					newcommentinfos\[\d+\]\.nCommentIndex,newcommentinfos\[\d+\]\.strCommentPersonTrueName,
+					newcommentinfos\[\d+\]\.strCommentReceivePersonTrueName
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="sendcommentcontent" class="cn.redarmy.action.GoodAction"
+			method="SendCommentContent">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsendcommentret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getupdatasignl" class="cn.redarmy.action.GoodAction"
+			method="GetUpdataSignl">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nupdatevalue\.nUpdateSignal,nupdatevalue\.strUpdateDescribe
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="setupdatasignl" class="cn.redarmy.action.GoodAction"
+			method="SetUpdataSignl">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsetupdatevalueret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="setcreditvalue" class="cn.redarmy.action.GoodAction"
+			method="SetCreditValue">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsetcreditvalueret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="setcharmvalue" class="cn.redarmy.action.GoodAction"
+			method="SetCharmValue">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsetcharmvalueret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getcreditvalue" class="cn.redarmy.action.GoodAction"
+			method="GetCreditValue">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					ngetcreditvalueret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getcharmvalue" class="cn.redarmy.action.GoodAction"
+			method="GetCharmValue">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					ngetcharmvalueret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="addcreditvalue" class="cn.redarmy.action.GoodAction"
+			method="AddCreditValue">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					naddcreditvalueret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="addcharmvalue" class="cn.redarmy.action.GoodAction"
+			method="AddCharmValue">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					naddcharmvalueret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="gettaskremaintime" class="cn.redarmy.action.GoodAction"
+			method="GetTaskRemainTime">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					ltaskremaintime
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="loadtaskdata" class="cn.redarmy.action.GoodAction"
+			method="LoadTaskData">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					loadtaskinfos\[\d+\]\.mstrTaskRegion,loadtaskinfos\[\d+\]\.mTaskAskPersonIcon,
+					loadtaskinfos\[\d+\]\.mPersonName,loadtaskinfos\[\d+\]\.mTaskTitle,
+					loadtaskinfos\[\d+\]\.mstrId,loadtaskinfos\[\d+\]\.mdLongitude,
+					loadtaskinfos\[\d+\]\.mdLatidude,loadtaskinfos\[\d+\]\.mTaskAnnounceTime,
+					loadtaskinfos\[\d+\]\.mTimeLimit,loadtaskinfos\[\d+\]\.mTaskDetail,
+					loadtaskinfos\[\d+\]\.mRunSeconds,loadtaskinfos\[\d+\]\.mTaskImplementName,
+					loadtaskinfos\[\d+\]\.mnValiableStatus,loadtaskinfos\[\d+\]\.mnImplementStatus,
+					loadtaskinfos\[\d+\]\.mnTaskType,loadtaskinfos\[\d+\]\.strTaskPersonTrueName,
+					loadtaskinfos\[\d+\]\.strTaskImplementTrueName,loadtaskinfos\[\d+\]\.nTaskSelectType,
+					loadtaskinfos\[\d+\]\.nTaskFinishType,loadtaskinfos\[\d+\]\.nTaskVerifiType,
+					loadtaskinfos\[\d+\]\.nTaskAnnounceCommentType,loadtaskinfos\[\d+\]\.nTaskImplementCommentType,
+					loadtaskinfos\[\d+\]\.nDynamicNewsNum,loadtaskinfos\[\d+\]\.strTaskAccountCommentContent,
+					loadtaskinfos\[\d+\]\.strTaskAccountImage,loadtaskinfos\[\d+\]\.strTaskImplementCommentContent,
+					loadtaskinfos\[\d+\]\.strTaskImplementImage
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="loadtaskdataforlimit" class="cn.redarmy.action.GoodAction"
+			method="LoadTaskDataForLimit">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					loaddetailtaskinfos\[\d+\]\.mstrTaskRegion,loaddetailtaskinfos\[\d+\]\.mTaskAskPersonIcon,
+					loaddetailtaskinfos\[\d+\]\.mPersonName,loaddetailtaskinfos\[\d+\]\.mTaskTitle,
+					loaddetailtaskinfos\[\d+\]\.mstrId,loaddetailtaskinfos\[\d+\]\.mdLongitude,
+					loaddetailtaskinfos\[\d+\]\.mdLatidude,loaddetailtaskinfos\[\d+\]\.mTaskAnnounceTime,
+					loaddetailtaskinfos\[\d+\]\.mTimeLimit,loaddetailtaskinfos\[\d+\]\.mTaskDetail,
+					loaddetailtaskinfos\[\d+\]\.mRunSeconds,loaddetailtaskinfos\[\d+\]\.mTaskImplementName,
+					loaddetailtaskinfos\[\d+\]\.mnValiableStatus,loaddetailtaskinfos\[\d+\]\.mnImplementStatus,
+					loaddetailtaskinfos\[\d+\]\.mnTaskType,loaddetailtaskinfos\[\d+\]\.strTaskPersonTrueName,
+					loaddetailtaskinfos\[\d+\]\.strTaskImplementTrueName,loaddetailtaskinfos\[\d+\]\.nTaskSelectType,
+					loaddetailtaskinfos\[\d+\]\.nTaskFinishType,loaddetailtaskinfos\[\d+\]\.nTaskVerifiType,
+					loaddetailtaskinfos\[\d+\]\.nTaskAnnounceCommentType,loaddetailtaskinfos\[\d+\]\.nTaskImplementCommentType,
+					loaddetailtaskinfos\[\d+\]\.nDynamicNewsNum,loaddetailtaskinfos\[\d+\]\.strTaskAccountCommentContent,
+					loaddetailtaskinfos\[\d+\]\.strTaskAccountImage,loaddetailtaskinfos\[\d+\]\.strTaskImplementCommentContent,
+					loaddetailtaskinfos\[\d+\]\.strTaskImplementImage,loaddetailtaskinfos\[\d+\]\.nCreditValue,
+					loaddetailtaskinfos\[\d+\]\.nCharmValue,loaddetailtaskinfos\[\d+\]\.nTaskCharmValue,
+					loaddetailtaskinfos\[\d+\]\.nCommentRecordNum,loaddetailtaskinfos\[\d+\]\.nBrowseTimes
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="updatetaskdata" class="cn.redarmy.action.GoodAction"
+			method="UpdateTaskData">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					updatetaskinfos\[\d+\]\.mstrTaskRegion,updatetaskinfos\[\d+\]\.mTaskAskPersonIcon,
+					updatetaskinfos\[\d+\]\.mPersonName,updatetaskinfos\[\d+\]\.mTaskTitle,
+					updatetaskinfos\[\d+\]\.mstrId,updatetaskinfos\[\d+\]\.mdLongitude,
+					updatetaskinfos\[\d+\]\.mdLatidude,updatetaskinfos\[\d+\]\.mTaskAnnounceTime,
+					updatetaskinfos\[\d+\]\.mTimeLimit,updatetaskinfos\[\d+\]\.mTaskDetail,
+					updatetaskinfos\[\d+\]\.mRunSeconds,updatetaskinfos\[\d+\]\.mTaskImplementName,
+					updatetaskinfos\[\d+\]\.mnValiableStatus,updatetaskinfos\[\d+\]\.mnImplementStatus,
+					updatetaskinfos\[\d+\]\.mnTaskType,updatetaskinfos\[\d+\]\.strTaskPersonTrueName,
+					updatetaskinfos\[\d+\]\.strTaskImplementTrueName,updatetaskinfos\[\d+\]\.nTaskSelectType,
+					updatetaskinfos\[\d+\]\.nTaskFinishType,updatetaskinfos\[\d+\]\.nTaskVerifiType,
+					updatetaskinfos\[\d+\]\.nTaskAnnounceCommentType,updatetaskinfos\[\d+\]\.nTaskImplementCommentType,
+					updatetaskinfos\[\d+\]\.nDynamicNewsNum,updatetaskinfos\[\d+\]\.strTaskAccountCommentContent,
+					updatetaskinfos\[\d+\]\.strTaskAccountImage,updatetaskinfos\[\d+\]\.strTaskImplementCommentContent,
+					updatetaskinfos\[\d+\]\.strTaskImplementImage
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="updatetaskdataforlimit" class="cn.redarmy.action.GoodAction"
+			method="UpdateTaskDataForLimit">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					updatedetailtaskinfos\[\d+\]\.mstrTaskRegion,updatedetailtaskinfos\[\d+\]\.mTaskAskPersonIcon,
+					updatedetailtaskinfos\[\d+\]\.mPersonName,updatedetailtaskinfos\[\d+\]\.mTaskTitle,
+					updatedetailtaskinfos\[\d+\]\.mstrId,updatedetailtaskinfos\[\d+\]\.mdLongitude,
+					updatedetailtaskinfos\[\d+\]\.mdLatidude,updatedetailtaskinfos\[\d+\]\.mTaskAnnounceTime,
+					updatedetailtaskinfos\[\d+\]\.mTimeLimit,updatedetailtaskinfos\[\d+\]\.mTaskDetail,
+					updatedetailtaskinfos\[\d+\]\.mRunSeconds,updatedetailtaskinfos\[\d+\]\.mTaskImplementName,
+					updatedetailtaskinfos\[\d+\]\.mnValiableStatus,updatedetailtaskinfos\[\d+\]\.mnImplementStatus,
+					updatedetailtaskinfos\[\d+\]\.mnTaskType,updatedetailtaskinfos\[\d+\]\.strTaskPersonTrueName,
+					updatedetailtaskinfos\[\d+\]\.strTaskImplementTrueName,updatedetailtaskinfos\[\d+\]\.nTaskSelectType,
+					updatedetailtaskinfos\[\d+\]\.nTaskFinishType,updatedetailtaskinfos\[\d+\]\.nTaskVerifiType,
+					updatedetailtaskinfos\[\d+\]\.nTaskAnnounceCommentType,updatedetailtaskinfos\[\d+\]\.nTaskImplementCommentType,
+					updatedetailtaskinfos\[\d+\]\.nDynamicNewsNum,updatedetailtaskinfos\[\d+\]\.strTaskAccountCommentContent,
+					updatedetailtaskinfos\[\d+\]\.strTaskAccountImage,updatedetailtaskinfos\[\d+\]\.strTaskImplementCommentContent,
+					updatedetailtaskinfos\[\d+\]\.strTaskImplementImage,updatedetailtaskinfos\[\d+\]\.nCreditValue,
+					updatedetailtaskinfos\[\d+\]\.nCharmValue,updatedetailtaskinfos\[\d+\]\.nTaskCharmValue,
+					updatedetailtaskinfos\[\d+\]\.nCommentRecordNum,updatedetailtaskinfos\[\d+\]\.nBrowseTimes
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="uploadlargeimage" class="cn.redarmy.action.GoodAction"
+			method="UploadLargeImage">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nuploadlargeimageret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="uploadtaskfinishtypeforlargeimage" class="cn.redarmy.action.GoodAction"
+			method="UploadTaskFinishTypeForLargeImage">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nuploadfinishimageret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="uploadtaskverifitypeforlargeimage" class="cn.redarmy.action.GoodAction"
+			method="UploadTaskVerifiTypeForLargeImage">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nuploadverifiimageret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="gettasksmallicon" class="cn.redarmy.action.GoodAction"
+			method="GetTaskSmallIcon">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					mtaskicon\.strIcon1,mtaskicon\.strIcon2,
+					mtaskicon\.strIcon3,mtaskicon\.strIcon4,
+					mtaskicon\.strIcon5,mtaskicon\.strIcon6
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="gettasklargeicon" class="cn.redarmy.action.GoodAction"
+			method="GetTaskLargeIcon">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					strtaskicon
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="gettaskfinishlargeimage" class="cn.redarmy.action.GoodAction"
+			method="GetTaskFinishLargeImage">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					strtaskfinishlargeimage
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="gettaskverifilargeimage" class="cn.redarmy.action.GoodAction"
+			method="GetTaskVerifiLargeImage">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					strtaskverifilargeimage
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="sendcommentimage" class="cn.redarmy.action.GoodAction"
+			method="SendCommentImage">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsendcommentimageret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getcommentslargeimage" class="cn.redarmy.action.GoodAction"
+			method="GetCommentsLargeImage">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					strcommentlargeimage
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="resettaskstatue" class="cn.redarmy.action.GoodAction"
+			method="ResetTaskStatue">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nretsettaskret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="recordcreditandcharmfortask" class="cn.redarmy.action.GoodAction"
+			method="RecordCreditAndCharmForTask">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nrecordvalueret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getcreditandcharmfortask" class="cn.redarmy.action.GoodAction"
+			method="GetCreditAndCharmForTask">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					creditandcharm\.nCreditValue,creditandcharm\.nCharmValue
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="sendadvicetext" class="cn.redarmy.action.GoodAction"
+			method="SendAdviceText">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsendadviceret
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="judgecustomervalidity" class="cn.redarmy.action.GoodAction"
+			method="JudgeCustomerValidity">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nJudgeValidityRet
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="getversioncode" class="cn.redarmy.action.GoodAction"
+			method="GetVersionCode">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nversioncode
+				</param>
+			</result>
+		</action>
+
+		<action name="getversionname" class="cn.redarmy.action.GoodAction"
+			method="GetVersionName">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					strversionname
+				</param>
+			</result>
+		</action>
+		<action name="registercustomerdetail" class="cn.redarmy.action.GoodAction"
+			method="RegisterCustomerDetail">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					bregeditretforlargeimage
+				</param>
+			</result>
+		</action>
+		<action name="changepersonimage" class="cn.redarmy.action.GoodAction"
+			method="ChangePersonImage">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nchangepersonimageret
+				</param>
+			</result>
+		</action>
+		<action name="gethelpneardata" class="cn.redarmy.action.GoodAction"
+			method="GetHelpNearData">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					distancehelpdata\[\d+\]\.mstrTaskRegion,distancehelpdata\[\d+\]\.mTaskAskPersonIcon,
+					distancehelpdata\[\d+\]\.mPersonName,distancehelpdata\[\d+\]\.mTaskTitle,
+					distancehelpdata\[\d+\]\.mstrId,distancehelpdata\[\d+\]\.mdLongitude,
+					distancehelpdata\[\d+\]\.mdLatidude,distancehelpdata\[\d+\]\.mTaskAnnounceTime,
+					distancehelpdata\[\d+\]\.mTimeLimit,distancehelpdata\[\d+\]\.mTaskDetail,
+					distancehelpdata\[\d+\]\.mRunSeconds,distancehelpdata\[\d+\]\.mTaskImplementName,
+					distancehelpdata\[\d+\]\.mnValiableStatus,distancehelpdata\[\d+\]\.mnImplementStatus,
+					distancehelpdata\[\d+\]\.mnTaskType,distancehelpdata\[\d+\]\.strTaskPersonTrueName,
+					distancehelpdata\[\d+\]\.strTaskImplementTrueName,distancehelpdata\[\d+\]\.nTaskSelectType,
+					distancehelpdata\[\d+\]\.nTaskFinishType,distancehelpdata\[\d+\]\.nTaskVerifiType,
+					distancehelpdata\[\d+\]\.nTaskAnnounceCommentType,distancehelpdata\[\d+\]\.nTaskImplementCommentType,
+					distancehelpdata\[\d+\]\.nDynamicNewsNum,distancehelpdata\[\d+\]\.strTaskAccountCommentContent,
+					distancehelpdata\[\d+\]\.strTaskAccountImage,distancehelpdata\[\d+\]\.strTaskImplementCommentContent,
+					distancehelpdata\[\d+\]\.strTaskImplementImage,distancehelpdata\[\d+\]\.nCreditValue,
+					distancehelpdata\[\d+\]\.nCharmValue,distancehelpdata\[\d+\]\.nDistance,
+					distancehelpdata\[\d+\]\.nTaskCharmValue,distancehelpdata\[\d+\]\.nCommentRecordNum,
+					distancehelpdata\[\d+\]\.nBrowseTimes
+				</param>
+			</result>
+		</action>
+		<action name="getshareneardata" class="cn.redarmy.action.GoodAction"
+			method="GetShareNearData">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					distancesharedata\[\d+\]\.mstrTaskRegion,distancesharedata\[\d+\]\.mTaskAskPersonIcon,
+					distancesharedata\[\d+\]\.mPersonName,distancesharedata\[\d+\]\.mTaskTitle,
+					distancesharedata\[\d+\]\.mstrId,distancesharedata\[\d+\]\.mdLongitude,
+					distancesharedata\[\d+\]\.mdLatidude,distancesharedata\[\d+\]\.mTaskAnnounceTime,
+					distancesharedata\[\d+\]\.mTimeLimit,distancesharedata\[\d+\]\.mTaskDetail,
+					distancesharedata\[\d+\]\.mRunSeconds,distancesharedata\[\d+\]\.mTaskImplementName,
+					distancesharedata\[\d+\]\.mnValiableStatus,distancesharedata\[\d+\]\.mnImplementStatus,
+					distancesharedata\[\d+\]\.mnTaskType,distancesharedata\[\d+\]\.strTaskPersonTrueName,
+					distancesharedata\[\d+\]\.strTaskImplementTrueName,distancesharedata\[\d+\]\.nTaskSelectType,
+					distancesharedata\[\d+\]\.nTaskFinishType,distancesharedata\[\d+\]\.nTaskVerifiType,
+					distancesharedata\[\d+\]\.nTaskAnnounceCommentType,distancesharedata\[\d+\]\.nTaskImplementCommentType,
+					distancesharedata\[\d+\]\.nDynamicNewsNum,distancesharedata\[\d+\]\.strTaskAccountCommentContent,
+					distancesharedata\[\d+\]\.strTaskAccountImage,distancesharedata\[\d+\]\.strTaskImplementCommentContent,
+					distancesharedata\[\d+\]\.strTaskImplementImage,distancesharedata\[\d+\]\.nCreditValue,
+					distancesharedata\[\d+\]\.nCharmValue,distancesharedata\[\d+\]\.nDistance,
+					distancesharedata\[\d+\]\.nTaskCharmValue,distancesharedata\[\d+\]\.nCommentRecordNum,
+					distancesharedata\[\d+\]\.nBrowseTimes
+				</param>
+			</result>
+		</action>
+
+		<action name="loadhelpneardata" class="cn.redarmy.action.GoodAction"
+			method="LoadHelpNearData">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					distancehelpdata1\[\d+\]\.mstrTaskRegion,distancehelpdata1\[\d+\]\.mTaskAskPersonIcon,
+					distancehelpdata1\[\d+\]\.mPersonName,distancehelpdata1\[\d+\]\.mTaskTitle,
+					distancehelpdata1\[\d+\]\.mstrId,distancehelpdata1\[\d+\]\.mdLongitude,
+					distancehelpdata1\[\d+\]\.mdLatidude,distancehelpdata1\[\d+\]\.mTaskAnnounceTime,
+					distancehelpdata1\[\d+\]\.mTimeLimit,distancehelpdata1\[\d+\]\.mTaskDetail,
+					distancehelpdata1\[\d+\]\.mRunSeconds,distancehelpdata1\[\d+\]\.mTaskImplementName,
+					distancehelpdata1\[\d+\]\.mnValiableStatus,distancehelpdata1\[\d+\]\.mnImplementStatus,
+					distancehelpdata1\[\d+\]\.mnTaskType,distancehelpdata1\[\d+\]\.strTaskPersonTrueName,
+					distancehelpdata1\[\d+\]\.strTaskImplementTrueName,distancehelpdata1\[\d+\]\.nTaskSelectType,
+					distancehelpdata1\[\d+\]\.nTaskFinishType,distancehelpdata1\[\d+\]\.nTaskVerifiType,
+					distancehelpdata1\[\d+\]\.nTaskAnnounceCommentType,distancehelpdata1\[\d+\]\.nTaskImplementCommentType,
+					distancehelpdata1\[\d+\]\.nDynamicNewsNum,distancehelpdata1\[\d+\]\.strTaskAccountCommentContent,
+					distancehelpdata1\[\d+\]\.strTaskAccountImage,distancehelpdata1\[\d+\]\.strTaskImplementCommentContent,
+					distancehelpdata1\[\d+\]\.strTaskImplementImage,distancehelpdata1\[\d+\]\.nCreditValue,
+					distancehelpdata1\[\d+\]\.nCharmValue,distancehelpdata1\[\d+\]\.nDistance,
+					distancehelpdata1\[\d+\]\.nTaskCharmValue,distancehelpdata1\[\d+\]\.nCommentRecordNum,
+					distancehelpdata1\[\d+\]\.nBrowseTimes
+				</param>
+			</result>
+		</action>
+		<action name="loadshareneardata" class="cn.redarmy.action.GoodAction"
+			method="LoadShareNearData">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					distancesharedata1\[\d+\]\.mstrTaskRegion,distancesharedata1\[\d+\]\.mTaskAskPersonIcon,
+					distancesharedata1\[\d+\]\.mPersonName,distancesharedata1\[\d+\]\.mTaskTitle,
+					distancesharedata1\[\d+\]\.mstrId,distancesharedata1\[\d+\]\.mdLongitude,
+					distancesharedata1\[\d+\]\.mdLatidude,distancesharedata1\[\d+\]\.mTaskAnnounceTime,
+					distancesharedata1\[\d+\]\.mTimeLimit,distancesharedata1\[\d+\]\.mTaskDetail,
+					distancesharedata1\[\d+\]\.mRunSeconds,distancesharedata1\[\d+\]\.mTaskImplementName,
+					distancesharedata1\[\d+\]\.mnValiableStatus,distancesharedata1\[\d+\]\.mnImplementStatus,
+					distancesharedata1\[\d+\]\.mnTaskType,distancesharedata1\[\d+\]\.strTaskPersonTrueName,
+					distancesharedata1\[\d+\]\.strTaskImplementTrueName,distancesharedata1\[\d+\]\.nTaskSelectType,
+					distancesharedata1\[\d+\]\.nTaskFinishType,distancesharedata1\[\d+\]\.nTaskVerifiType,
+					distancesharedata1\[\d+\]\.nTaskAnnounceCommentType,distancesharedata1\[\d+\]\.nTaskImplementCommentType,
+					distancesharedata1\[\d+\]\.nDynamicNewsNum,distancesharedata1\[\d+\]\.strTaskAccountCommentContent,
+					distancesharedata1\[\d+\]\.strTaskAccountImage,distancesharedata1\[\d+\]\.strTaskImplementCommentContent,
+					distancesharedata1\[\d+\]\.strTaskImplementImage,distancesharedata1\[\d+\]\.nCreditValue,
+					distancesharedata1\[\d+\]\.nCharmValue,distancesharedata1\[\d+\]\.nDistance,
+					distancesharedata1\[\d+\]\.nTaskCharmValue,distancesharedata1\[\d+\]\.nCommentRecordNum,
+					distancesharedata1\[\d+\]\.nBrowseTimes
+				</param>
+			</result>
+		</action>
+		<action name="getmsgnumnew" class="cn.redarmy.action.GoodAction"
+			method="GetMsgNumNew">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					taskinfos\[\d+\]\.mstrTaskRegion,taskinfos\[\d+\]\.mTaskAskPersonIcon,
+					taskinfos\[\d+\]\.mPersonName,taskinfos\[\d+\]\.mTaskTitle,
+					taskinfos\[\d+\]\.mstrId,taskinfos\[\d+\]\.mdLongitude,
+					taskinfos\[\d+\]\.mdLatidude,taskinfos\[\d+\]\.mTaskAnnounceTime,
+					taskinfos\[\d+\]\.mTimeLimit,taskinfos\[\d+\]\.mTaskDetail,
+					taskinfos\[\d+\]\.mRunSeconds,taskinfos\[\d+\]\.mTaskImplementName,
+					taskinfos\[\d+\]\.mnValiableStatus,taskinfos\[\d+\]\.mnImplementStatus,
+					taskinfos\[\d+\]\.mnTaskType,taskinfos\[\d+\]\.strTaskPersonTrueName,
+					taskinfos\[\d+\]\.strTaskImplementTrueName,taskinfos\[\d+\]\.nTaskSelectType,
+					taskinfos\[\d+\]\.nTaskFinishType,taskinfos\[\d+\]\.nTaskVerifiType,
+					taskinfos\[\d+\]\.nTaskAnnounceCommentType,taskinfos\[\d+\]\.nTaskImplementCommentType,
+					taskinfos\[\d+\]\.nDynamicNewsNum,taskinfos\[\d+\]\.strTaskAccountCommentContent,
+					taskinfos\[\d+\]\.strTaskAccountImage,taskinfos\[\d+\]\.strTaskImplementCommentContent,
+					taskinfos\[\d+\]\.strTaskImplementImage
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="updatecommenttype" class="cn.redarmy.action.GoodAction"
+			method="UpdateCommentType">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					commentstatusret
+				</param>
+			</result>
+		</action>
+		<action name="sendcommentcontentnew" class="cn.redarmy.action.GoodAction"
+			method="SendCommentContentNew">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsendcommentnewret
+				</param>
+			</result>
+		</action>
+		<action name="sendcommentcontentnewsecret" class="cn.redarmy.action.GoodAction"
+			method="SendCommentContentNewSecret">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsendcommentnewsecretret
+				</param>
+			</result>
+		</action>
+		<action name="sendcommentimagenew" class="cn.redarmy.action.GoodAction"
+			method="SendCommentImageNew">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nsendcommentimagenewret
+				</param>
+			</result>
+		</action>
+		<action name="getupdatasignlnew" class="cn.redarmy.action.GoodAction"
+			method="GetUpdataSignlNew">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nupdatevalue\.nUpdateSignal,nupdatevalue\.strUpdateDescribe
+				</param>
+			</result>
+			<result name="input">/WEB-INF/index.jsp</result>
+		</action>
+		<action name="praisetotaskorshare" class="cn.redarmy.action.GoodAction"
+			method="PraiseToTaskOrShare">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nPraiseRet
+				</param>
+			</result>
+		</action>
+		<action name="addbrowsetimes" class="cn.redarmy.action.GoodAction"
+			method="AddBrowseTimes">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nBrowseRet
+				</param>
+			</result>
+		</action>
+		<action name="getmsgnumnewdetail" class="cn.redarmy.action.GoodAction"
+			method="GetMsgNumNewDetail">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					taskinfodetails\[\d+\]\.mstrTaskRegion,taskinfodetails\[\d+\]\.mTaskAskPersonIcon,
+					taskinfodetails\[\d+\]\.mPersonName,taskinfodetails\[\d+\]\.mTaskTitle,
+					taskinfodetails\[\d+\]\.mstrId,taskinfodetails\[\d+\]\.mdLongitude,
+					taskinfodetails\[\d+\]\.mdLatidude,taskinfodetails\[\d+\]\.mTaskAnnounceTime,
+					taskinfodetails\[\d+\]\.mTimeLimit,taskinfodetails\[\d+\]\.mTaskDetail,
+					taskinfodetails\[\d+\]\.mRunSeconds,taskinfodetails\[\d+\]\.mTaskImplementName,
+					taskinfodetails\[\d+\]\.mnValiableStatus,taskinfodetails\[\d+\]\.mnImplementStatus,
+					taskinfodetails\[\d+\]\.mnTaskType,taskinfodetails\[\d+\]\.strTaskPersonTrueName,
+					taskinfodetails\[\d+\]\.strTaskImplementTrueName,taskinfodetails\[\d+\]\.nTaskSelectType,
+					taskinfodetails\[\d+\]\.nTaskFinishType,taskinfodetails\[\d+\]\.nTaskVerifiType,
+					taskinfodetails\[\d+\]\.nTaskAnnounceCommentType,taskinfodetails\[\d+\]\.nTaskImplementCommentType,
+					taskinfodetails\[\d+\]\.nDynamicNewsNum,taskinfodetails\[\d+\]\.strTaskAccountCommentContent,
+					taskinfodetails\[\d+\]\.strTaskAccountImage,taskinfodetails\[\d+\]\.strTaskImplementCommentContent,
+					taskinfodetails\[\d+\]\.strTaskImplementImage,taskinfodetails\[\d+\]\.nCreditValue,
+					taskinfodetails\[\d+\]\.nCharmValue,taskinfodetails\[\d+\]\.nTaskCharmValue,
+					taskinfodetails\[\d+\]\.nCommentRecordNum,taskinfodetails\[\d+\]\.nBrowseTimes
+				</param>
+			</result>
+		</action> 
+		<action name="updateitemdetailtext" class="cn.redarmy.action.GoodAction"
+			method="UpdateItemDetailText">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nupdateitemdetailtextRet
+				</param>
+			</result>
+		</action>
+		<action name="updateitemtitletext" class="cn.redarmy.action.GoodAction"
+			method="UpdateItemTitleText">
+			<!-- 设置返回类型为json -->
+			<result name="success" type="json">
+				<param name="includeProperties">
+					nupdateitemtitletextRet
+				</param>
+			</result>
+		</action>
+	</package>
+
+</struts>   

@@ -1,0 +1,119 @@
+package cn.redarmy.service.GoodService;
+
+import java.util.List;
+
+import cn.redarmy.domain.CommentInfo;
+import cn.redarmy.domain.CustomerInfo;
+import cn.redarmy.domain.TaskInfo;
+import cn.redarmy.domain.UpdateData;
+
+public interface GoodService {
+	// 获取任务发布信息数据,strType为数据类型,1表示求助,2表示分享
+	public abstract List<TaskInfo> GetTaskInfo(String strType);
+
+	// 发布任务信息
+	public abstract int AddTaskInfo(String strTaskType,// 任务类型,nType为数据类型,1表示互助,2表示福利,3表示广场任务,1和2为附近任务
+			String strRegionName,// 任务执行区域
+			String strTaskTitle,// 任务标题
+			String strTaskDeatial,// 任务描述
+			String strTaskAnnounceTime,// 任务发布时间
+			String strTaskImpleTime,// 任务完成时间
+			String strTaskAccountName,// 任务发布人名称
+			String strImplementAccountName,// 任务执行人名称
+			String strLongitude,// 任务执行区域的经度
+			String strLatidude,// 任务执行区域的纬度
+			String strTaskAccountIcon,// 任务发布者的图标
+			String strLimitTime);
+
+	// 注册用户
+	public abstract int RegisterCustomer(String strBase64Icon,
+			String strPersonName, String strPassword, String strCreditValue,
+			String strCharmValue);
+
+	// 登录
+	public abstract CustomerInfo LogIn(String strPersonName, String strPassword);
+
+	// 用户拿下某个任务,0表示失败,如果返回1表示任务获取成功,2表示任务已有人拿下,strType为数据类型,1表示求助,2表示分享
+	public abstract int SelectTask(String strTaskId, String strPersonName,
+			String strType);// 任务id号
+
+	// 获取动态条数
+	public abstract List<TaskInfo> GetMsgInfoNum(String strAnnounceName);// 任务发布者名称
+
+	// 更新接收状态,这个针对发布者,0表示失败,1表示成功
+	// 这里的nValue,1表示没有人接收,2表示有人接收,3表示任务已经接收同时任务发布者已经查看了这个接收
+	public abstract int UpdateTaskSelectType(String strAnnounceName,
+			int nValue, String strTaskId, String strType);// 任务发布者
+
+	// 更新完成状态,这个针对发布者
+	// 这里的nValue,1表示任务没有完成,2表示任务完成,3表示任务完成同时发布者已查看了这个状态,nTaskType为任务类型,1表示求助,2表示分享
+	public abstract int UpdateTaskFinishType(int nTaskType,
+			String strAnnounceName, int nValue, String strTaskId,
+			String strBase64Image, String strCommentContent);// 任务发布者
+
+	// 更新执行者评论状态,这个针对发布者,0表示失败,1表示成功
+	// 这里的nValue,1表示没有最新评论,2表示有最新评论,3表示有最新评论同时任务发布者已查看
+	public abstract int UpdateTaskImplementCommentType(String strAnnounceName,
+			int nValue, String strTaskId, String strType);// 任务发布者
+
+	// 更新任务验证状态,这个针对执行者,0表示失败,1表示成功
+	// 这里的nValue,1表示没有验收,2表示验收了,3表示验收了同时任务执行者已经查看该状态,nTaskType为任务类型,1表示求助,2表示分享
+	public abstract int UpdateTaskVerifiType(int nTaskType,
+			String strAnnounceName, int nValue, String strTaskId,
+			String strBase64Image, String strCommentContent);// 任务执行者
+
+	// 更新任务发布者评论状态,这个针对执行者,0表示失败,1表示成功
+	// 这里的nValue,1表示没有最新评论,2表示有最新评论,3表示有最新评论同时任务执行者已查看
+	public abstract int UpdateTaskAnnounceCommentType(String strAnnounceName,
+			int nValue, String strTaskId, String strType);// 任务执行者
+
+	// 获取指定任务的所有评论
+	public abstract List<CommentInfo> GetCommentsForTask(String strTaskId,
+			String strType);
+
+	// 发送评论数据,0表示失败,1表示成功
+	public abstract int SendCommentContent(
+			String strTaskId,
+			String strCommentPersonName,// 评论人名称
+			String strReceiveCommentPersonName,// 接收到评论的人名称
+			String strCommentContent, String strCommentPersonImage,
+			String strType);// 评论人图标
+
+	// 获取更新状态标志,返回UpdateData类型的值nUpdateSignal，-1表示操作失败,0表示不需要更新,1表示需要更新
+	public abstract UpdateData GetUpdateSignal(String strCurrentAccountName);// 有数据更新的用户名称(下面函数参数表示的意思相同)
+	// 设置更新标志,0表示失败,1表示成功
+
+	public abstract int SetUpdateSignal(String strCurrentAccountName,
+			int nSignal);
+
+	// 设置人品值,0表示失败,1表示成功
+	public abstract int SetCreditValue(String strPersonName, int nCreditValue);
+
+	// 设置人品值,0表示失败,1表示成功
+	public abstract int SetCharmValue(String strPersonName, int nCharmValue);
+
+	// 设置人品值,-1表示失败
+	public abstract int GetCreditValue(String strPersonName);
+
+	// 设置人品值,-1表示失败
+	public abstract int GetCharmValue(String strPersonName);
+
+	// 增加人品值,nIncrValue表示人品增加值,0表示失败,1表示成功
+	public abstract int AddCreditValue(String strPersonName, int nIncrValue);
+
+	// 增加赞值,nIncrValue表示赞值,0表示失败,1表示成功
+	public abstract int AddCharmValue(String strPersonName, int nIncrValue);
+
+	// 根据任务id获取该任务的当前剩余时间,-1表示失败(返回值的单位为秒)
+	public abstract long GetTaskRemainTime(String strTaskId, String strType);
+
+	// 加载没有到期的求助或分享任务数据,nLimit为一次加载的数据最大条数,nType为类型,1表示求助,
+	// 2表示分享,nMaxTaskId表示最多能加载到的任务号,nCurrentIndex表示当前加载到的索引号(不包括该任务号的数据)
+	public abstract List<TaskInfo> LoadTaskData(int nLimit, int nType,
+			int nMaxTaskId);
+
+	// 刷新没有到期的求助或分享任务数据,nLimit为一次加载的数据最大条数,nType为类型,1表示求助,
+	// 2表示分享,nMaxTaskId表示目前刷新到的最大任务号(包括该任务号的数据)
+	public abstract List<TaskInfo> UpdateTaskData(int nLimit, int nType,
+			int nMaxTaskId);
+}

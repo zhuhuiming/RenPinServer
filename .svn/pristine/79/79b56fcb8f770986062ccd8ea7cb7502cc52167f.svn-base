@@ -1,0 +1,296 @@
+package cn.redarmy.domain;
+
+import java.io.Serializable;
+
+public class DistanceDetail implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public DistanceDetail() {
+	}
+	
+	public DistanceDetail(String strRegion, String strIcon,
+			String strPersonName, String strTitle, String strId,
+			double dLongitude, double dLatidude, String strTaskAnnouceTime,
+			String strTimeLimit, String strTaskDetail, String strRunTime,
+			String strTaskImplementName, int nTimeStatus, int nImpleStatus,
+			int nTaskType, int nTaskSelectType, int nTaskFinishType,
+			int nTaskVerifiType, int nTaskAnnounceCommentType,
+			int nTaskImplementCommentType, int nDynamicNewsNum,
+			String strTaskAccountCommentContent, String strTaskAccountImage,
+			String strTaskImplementCommentContent,
+			String strTaskImplementImage, String strTaskPersonTrueName,
+			String strTaskImplementTrueName, int nCreditValue, int nCharmValue,
+			int nDistance,int nTaskCharmValue,int nCommentRecordNum,
+			int nBrowseTimes) {
+		mstrTaskRegion = strRegion;
+		mTaskAskPersonIcon = strIcon;
+		mPersonName = strPersonName;
+		mTaskTitle = strTitle;
+		mstrId = strId;
+		mdLongitude = dLongitude;
+		mdLatidude = dLatidude;
+		mTaskAnnounceTime = strTaskAnnouceTime;
+		mTimeLimit = strTimeLimit;
+		mTaskDetail = strTaskDetail;
+		mRunSeconds = strRunTime;
+		mTaskImplementName = strTaskImplementName;
+		mnValiableStatus = nTimeStatus;
+		mnImplementStatus = nImpleStatus;
+		mnTaskType = nTaskType;
+		this.nTaskSelectType = nTaskSelectType;
+		this.nTaskFinishType = nTaskFinishType;
+		this.nTaskVerifiType = nTaskVerifiType;
+		this.nTaskAnnounceCommentType = nTaskAnnounceCommentType;
+		this.nTaskImplementCommentType = nTaskImplementCommentType;
+		this.nDynamicNewsNum = nDynamicNewsNum;
+		this.strTaskAccountCommentContent = strTaskAccountCommentContent;
+		this.strTaskAccountImage = strTaskAccountImage;
+		this.strTaskImplementCommentContent = strTaskImplementCommentContent;
+		this.strTaskImplementImage = strTaskImplementImage;
+		this.strTaskPersonTrueName = strTaskPersonTrueName;
+		this.strTaskImplementTrueName = strTaskImplementTrueName;
+		this.nCreditValue = nCreditValue;
+		this.nCharmValue = nCharmValue;
+		this.nDistance = nDistance;
+		this.nTaskCharmValue = nTaskCharmValue;
+		this.nCommentRecordNum = nCommentRecordNum;
+		this.nBrowseTimes = nBrowseTimes;
+	}
+
+	public String getmstrTaskRegion() {
+		return mstrTaskRegion;
+	}
+
+	public String getmTaskAskPersonIcon() {
+		return mTaskAskPersonIcon;
+	}
+
+	public String getmTaskTitle() {
+		return mTaskTitle;
+	}
+
+	public String getmPersonName() {
+		return mPersonName;
+	}
+
+	public String getmstrId() {
+		return mstrId;
+	}
+
+	public double getmdLongitude() {
+		return mdLongitude;
+	}
+
+	public double getmdLatidude() {
+		return mdLatidude;
+	}
+
+	public String getmTaskAnnounceTime() {
+		return mTaskAnnounceTime;
+	}
+
+	public String getmTimeLimit() {
+		return mTimeLimit;
+	}
+
+	public String getmTaskDetail() {
+		return mTaskDetail;
+	}
+
+	public String getmRunSeconds() {
+		return mRunSeconds;
+	}
+
+	public String getmTaskImplementName() {
+		return mTaskImplementName;
+	}
+
+	public int getmnValiableStatus() {
+		return mnValiableStatus;
+	}
+
+	public int getmnImplementStatus() {
+		return mnImplementStatus;
+	}
+
+	public int getmnTaskType() {
+		return mnTaskType;
+	}
+
+	public int getnTaskSelectType() {
+		return nTaskSelectType;
+	}
+
+	public int getnTaskFinishType() {
+		return nTaskFinishType;
+	}
+
+	public int getnTaskVerifiType() {
+		return nTaskVerifiType;
+	}
+
+	public int getnTaskAnnounceCommentType() {
+		return nTaskAnnounceCommentType;
+	}
+
+	public int getnTaskImplementCommentType() {
+		return nTaskImplementCommentType;
+	}
+
+	public int getnDynamicNewsNum() {
+		return nDynamicNewsNum;
+	}
+
+	public String getstrTaskAccountCommentContent() {
+		return strTaskAccountCommentContent;
+	}
+
+	public String getstrTaskAccountImage() {
+		return strTaskAccountImage;
+	}
+
+	public String getstrTaskImplementCommentContent() {
+		return strTaskImplementCommentContent;
+	}
+
+	public String getstrTaskImplementImage() {
+		return strTaskImplementImage;
+	}
+
+	public String getstrTaskPersonTrueName() {
+		return strTaskPersonTrueName;
+	}
+
+	public String getstrTaskImplementTrueName() {
+		return strTaskImplementTrueName;
+	}
+
+	public int getnCreditValue() {
+		return nCreditValue;
+	}
+
+	public int getnCharmValue() {
+		return nCharmValue;
+	}
+	
+	public int getnDistance() {
+		return nDistance;
+	}
+	
+	public int getnTaskCharmValue() {
+		return nTaskCharmValue;
+	}
+	
+	public int getnCommentRecordNum() {
+		return nCommentRecordNum;
+	}
+	
+	public int getnBrowseTimes() {
+		return nBrowseTimes;
+	}
+
+	public void setnTaskSelectType(int nValue) {
+		nTaskSelectType = nValue;
+	}
+
+	public void setnTaskFinishType(int nValue) {
+		nTaskFinishType = nValue;
+	}
+
+	public void setnTaskVerifiType(int nValue) {
+		nTaskVerifiType = nValue;
+	}
+
+	public void setnTaskAnnounceCommentType(int nValue) {
+		nTaskAnnounceCommentType = nValue;
+	}
+
+	public void setnTaskImplementCommentType(int nValue) {
+		nTaskImplementCommentType = nValue;
+	}
+
+	public void setnDynamicNewsNum(int nValue) {
+		nDynamicNewsNum = nValue;
+	}
+	
+	public void setnDistance(int nValue) {
+		nDistance = nValue;
+	}
+
+	public void setmTaskAskPersonIcon(String strIcon) {
+		mTaskAskPersonIcon = strIcon;
+	}
+	
+	public void setnTaskCharmValue(int nValue) {
+		nTaskCharmValue = nValue;
+	}
+	
+	public void setnCommentRecordNum(int nValue) {
+		nCommentRecordNum = nValue;
+	}
+	
+	public void setnBrowseTimes(int nValue) {
+		nBrowseTimes = nValue;
+	}
+	
+	// 任务发布区域
+	private String mstrTaskRegion;
+	// 发布任务的人头像
+	private String mTaskAskPersonIcon;
+	// 发布任务人名称(昵称)
+	private String mPersonName;
+	// 发布任务的标题
+	private String mTaskTitle;
+	// 任务id号
+	private String mstrId;
+	// 任务发布区域的经度
+	private double mdLongitude;
+	// 任务发布区域的纬度
+	private double mdLatidude;
+	// 任务发布时间
+	private String mTaskAnnounceTime;
+	// 时间限制
+	private String mTimeLimit;
+	// 任务详细描述
+	private String mTaskDetail;
+	// 任务从发布到现在经过的秒数
+	private String mRunSeconds;
+	// 任务接收人名称(昵称)
+	private String mTaskImplementName;
+	// 任务的有效期状态,1表示处于有效期,2表示任务过期
+	private int mnValiableStatus;
+	// 任务的执行状态,1表示等待任务接收,2表示任务执行中,3表示任务已完成等待验证,4表示任务验证成功,5表示任务验证失败
+	private int mnImplementStatus;
+	// 任务类型,1表示求助,2表示分享
+	private int mnTaskType;
+	// 发布任务人名称
+	private String strTaskPersonTrueName;
+	// 任务接收人名称
+	private String strTaskImplementTrueName;
+	// 拿下该任务或抢下该分享需要的人品值
+	private int nCreditValue;
+	// 拿下该任务或抢下该分享需要的赞值
+	private int nCharmValue;
+	//任务离当前用户的距离
+	private int nDistance;
+	//赞值
+    private int nTaskCharmValue;
+    //评论条数
+    private int nCommentRecordNum;
+    //浏览次数
+    private int nBrowseTimes;
+	
+	int nTaskSelectType;// 任务处理类型,1表示没有人接收,2表示有人接收,3表示任务已经接收同时任务发布者已经查看了这个接收
+	int nTaskFinishType;// 任务完成状态,1表示任务没有完成,2表示任务完成,3表示任务完成同时发布者已查看了这个状态
+	int nTaskVerifiType;// 任务验收状态,1表示没有验收,2表示验收了,3表示验收了同时任务执行者已经查看该状态
+	int nTaskAnnounceCommentType;// 发布者最新评论,1表示没有最新评论,2表示有最新评论,3表示有最新评论同时任务执行者已查看
+	int nTaskImplementCommentType;// 执行者最新评论，1表示没有最新评论,2表示有最新评论,3表示有最新评论同时任务发布者已查看
+	int nDynamicNewsNum;// 动态消息条数
+	String strTaskAccountCommentContent;// 任务发布者给执行者的评论
+	String strTaskAccountImage;// 任务发布者给执行者的图片
+	String strTaskImplementCommentContent;// 任务执行者给发布者的评论
+	String strTaskImplementImage;// 任务执行者给发布者的图片
+}
